@@ -13,7 +13,7 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose the port Vite runs on (usually 3000)
+# Expose the port Vite runs on
 EXPOSE 3000
 
 # Start the Vite dev server
