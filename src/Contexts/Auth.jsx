@@ -13,7 +13,7 @@ export default function AuthContextProvider({ children }) {
 //   function VerifyUserToken() {
 //     setIsLoading(true);
 //     axios
-//       .get("https://ecommerce.routemisr.com/api/v1/auth/verifyToken", {
+//       .get("", {
 //         headers: {
 //           token: localStorage.getItem("token"),
 //         },

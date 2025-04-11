@@ -1,19 +1,100 @@
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/react";
 import { Link } from "react-router-dom";
-import React, {  useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { ErrorMessage, useFormik } from "formik";
 import * as yup from "yup";
 // import axios from "axios";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Alert } from "@heroui/react";
 import { useLocation } from "react-router-dom";
 import { authContext } from "../../Contexts/Auth";
 // import Home from "../UserPages/Home/Home";
 import { Bounce, toast } from "react-toastify";
+import { Tabs, Tab, Card, CardBody } from "@heroui/react";
 
 export default function Login() {
+  // function AdminForm() {
+  //   return (
+  //     <>
+  //       <div className=" my-10  mx-auto ">
+  //         <form
+  //           onSubmit={handleSubmit}
+  //           className="md:w-[75%] sm:w-[80%] lg:w-[60%] my-5 mx-auto grid gap-4 md:grid-cols-1 border border-x-medium rounded-md shadow-lg p-6  "
+  //         >
+  //           {showAlert && (
+  //             <div className="flex items-center justify-center w-full">
+  //               <div className="w-full flex items-center my-3">
+  //                 <Alert color="danger" title="You must login first" />
+  //               </div>
+  //             </div>
+  //           )}
+  //           <Input
+  //             isInvalid={touched.email && errors.email}
+  //             errorMessage={errors.email}
+  //             onBlur={handleBlur}
+  //             value={values.email}
+  //             onChange={handleChange}
+  //             name="email"
+  //             variant="underlined"
+  //             className="md:col-span-1  "
+  //             label="Email"
+  //             placeholder="Enter your email"
+  //             type="email"
+  //           />
+
+  //           <Input
+  //             isInvalid={touched.password && errors.password}
+  //             errorMessage={errors.password}
+  //             onBlur={handleBlur}
+  //             value={values.password}
+  //             onChange={handleChange}
+  //             name="password"
+  //             variant="underlined"
+  //             className="md:col-span-1  "
+  //             label="Password"
+  //             placeholder="Enter your Password"
+  //             type="password"
+  //           />
+
+  //           {/* {Error && (
+  //     <div className="flex items-center justify-center w-full">
+  //       <div className="flex flex-col w-full">
+  //         {["danger"].map((color) => (
+  //           <div key={color} className="w-full flex items-center my-3">
+  //             <Alert color={"danger"} title={Error} />
+  //           </div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   )} */}
+
+  //           <Button
+  //             isLoading={IsLoading}
+  //             type="submit"
+  //             className="md:col-span-1   mt-5 bg-gradient-to-tr from-[#00b7eb] to-[#f4a460] text-white shadow-lg  "
+  //             radius="full"
+  //           >
+  //             <span className=" text-lg ">Login</span>
+  //           </Button>
+
+  //           <div className="md:col-span-1   text-center">
+  //             <p className=" ">
+  //               Don't have account yet?
+  //               <Link to="/register">
+  //                 <span className="hover:underline text-blue-700 ps-3 ">
+  //                   Sign Up
+  //                 </span>
+  //               </Link>
+  //             </p>
+  //           </div>
+  //         </form>
+  //       </div>
+  //     </>
+  //   );
+  // }
+
   const [IsLoading, setIsLoading] = useState(false);
   const { IsLogedin, setIsLogedin } = useContext(authContext);
   const navigator = useNavigate();
@@ -34,7 +115,7 @@ export default function Login() {
     setError("");
 
     // axios
-    //   .post("https://ecommerce.routemisr.com/api/v1/auth/signin", values)
+    //   .post("", values)
     //   .then((res) => {
     //     // console.log(res);
     //     localStorage.setItem("token", res.data.token);
@@ -77,7 +158,7 @@ export default function Login() {
 
     try {
       // Simulating an API request (replace with actual API call)
-      // const res = await axios.post("https://your-api.com/login", values);
+      // const res = await axios.post("", values);
       // localStorage.setItem("token", res.data.token);
 
       navigator("/"); // Redirect to Home after successful login
@@ -93,7 +174,7 @@ export default function Login() {
         theme: "light",
         transition: Bounce,
       });
-      setIsLogedin(true)
+      setIsLogedin(true);
     } catch (error) {
       setError("Invalid email or password");
 
@@ -140,86 +221,85 @@ export default function Login() {
     validationSchema,
   });
 
+  
+
   return (
     <>
-      <div className=" my-10  mx-auto ">
-        <form
-          onSubmit={handleSubmit}
-          className="md:w-[75%] sm:w-[80%] lg:w-[60%] my-5 mx-auto grid gap-4 md:grid-cols-1 border border-x-medium rounded-md shadow-lg p-6  "
-        >
-          {showAlert && (
-            <div className="flex items-center justify-center w-full">
-              <div className="w-full flex items-center my-3">
-                <Alert color="danger" title="You must login first" />
-              </div>
-            </div>
-          )}
-          <Input
-            isInvalid={touched.email && errors.email}
-            errorMessage={errors.email}
-            onBlur={handleBlur}
-            value={values.email}
-            onChange={handleChange}
-            name="email"
-            variant="underlined"
-            className="md:col-span-1  "
-            label="Email"
-            placeholder="Enter your email"
-            type="email"
-          />
-
-          <Input
-            isInvalid={touched.password && errors.password}
-            errorMessage={errors.password}
-            onBlur={handleBlur}
-            value={values.password}
-            onChange={handleChange}
-            name="password"
-            variant="underlined"
-            className="md:col-span-1  "
-            label="Password"
-            placeholder="Enter your Password"
-            type="password"
-          />
-
-          {/* {Error && (
-            <div className="flex items-center justify-center w-full">
-              <div className="flex flex-col w-full">
-                {["danger"].map((color) => (
-                  <div key={color} className="w-full flex items-center my-3">
-                    <Alert color={"danger"} title={Error} />
+    
+      <div className=" my-10   ">
+              <form
+                onSubmit={handleSubmit}
+                className="md:w-[75%] sm:w-[80%] lg:w-[60%] my-5 mx-auto grid gap-4 md:grid-cols-1 border border-x-medium rounded-md shadow-lg p-6  "
+              >
+                {showAlert && (
+                  <div className="flex items-center justify-center w-full">
+                    <div className="w-full flex items-center my-3">
+                      <Alert color="danger" title="You must login first" />
+                    </div>
                   </div>
-                ))}
-              </div>
+                )}
+                <Input
+                  isInvalid={touched.email && errors.email}
+                  errorMessage={errors.email}
+                  onBlur={handleBlur}
+                  value={values.email}
+                  onChange={handleChange}
+                  name="email"
+                  variant="underlined"
+                  className="md:col-span-1  "
+                  label="Email"
+                  placeholder="Enter your email"
+                  type="email"
+                />
+
+                <Input
+                  isInvalid={touched.password && errors.password}
+                  errorMessage={errors.password}
+                  onBlur={handleBlur}
+                  value={values.password}
+                  onChange={handleChange}
+                  name="password"
+                  variant="underlined"
+                  className="md:col-span-1  "
+                  label="Password"
+                  placeholder="Enter your Password"
+                  type="password"
+                />
+
+                {/* {Error && (
+          <div className="flex items-center justify-center w-full">
+            <div className="flex flex-col w-full">
+              {["danger"].map((color) => (
+                <div key={color} className="w-full flex items-center my-3">
+                  <Alert color={"danger"} title={Error} />
+                </div>
+              ))}
             </div>
-          )} */}
-
-          <Button
-            isLoading={IsLoading}
-            type="submit"
-            className="md:col-span-1   mt-5 bg-gradient-to-tr from-[#00b7eb] to-[#f4a460] text-white shadow-lg  "
-            radius="full"
-          >
-            <span className=" text-lg ">Login</span>
-          </Button>
-
-          <div className="md:col-span-1   text-center">
-            <p className=" ">
-              Don't have account yet?
-              <Link to="/register">
-                <span className="hover:underline text-blue-700 ps-3 ">
-                  Sign Up
-                </span>
-              </Link>
-            </p>
           </div>
-        </form>
-      </div>
+        )} */}
+
+                <Button
+                  isLoading={IsLoading}
+                  type="submit"
+                  className="md:col-span-1   mt-5 bg-gradient-to-tr from-[#00b7eb] to-[#f4a460] text-white shadow-lg  "
+                  radius="full"
+                >
+                  <span className=" text-lg ">Login</span>
+                </Button>
+
+                <div className="md:col-span-1   text-center">
+                  <p className=" ">
+                    Don't have account yet?
+                    <Link to="/register">
+                      <span className="hover:underline text-blue-700 ps-3 ">
+                        Sign Up
+                      </span>
+                    </Link>
+                  </p>
+                </div>
+              </form>
+            </div>
+          
     </>
   );
 }
-
-
-
-
-

@@ -14,9 +14,9 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-[#071952] to-[#088395] text-white py-12">
       <div className="container mx-auto px-5 md:px-10 lg:px-20">
-        {/* ✅ الشبكة الرئيسية */}
+      
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
-          {/* 🎯 عن TRAVILLA */}
+     
           <div>
             <h2 className="text-2xl font-bold uppercase tracking-widest">
               TRAVILLA
@@ -26,7 +26,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* 🎯 الروابط السريعة */}
           <div>
             <h3 className="text-xl font-semibold mb-3 uppercase tracking-wide">
               LINKS
@@ -55,7 +54,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* 🎯 تابعنا على السوشيال ميديا */}
           <div>
             <h3 className="text-xl font-semibold mb-3 uppercase tracking-wide">
               Follow us
@@ -95,7 +93,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ✅ حقوق النشر */}
         <div className="mt-10 border-t border-gray-400 pt-5 text-center text-sm text-gray-300">
           © {new Date().getFullYear()} TRAVILLA. جميع الحقوق محفوظة.
         </div>

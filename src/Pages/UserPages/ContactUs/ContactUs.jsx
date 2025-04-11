@@ -5,7 +5,6 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"; // أيق�
 export default function ContactUs() {
   return (
     <div className="container mx-auto my-20 px-5 lg:px-20">
-      {/* 🏷️ العنوان */}
       <div className="text-center">
         <h2 className="text-4xl font-bold text-[#071952]">📩 Contact Us</h2>
         <p className="text-lg text-gray-600 mt-3">
@@ -14,7 +13,6 @@ export default function ContactUs() {
       </div>
 
       <div className="flex flex-col lg:flex-row mt-16 gap-12">
-        {/* 📍 معلومات التواصل */}
         <div className="lg:w-1/3 bg-white shadow-lg rounded-lg p-8">
           <h3 className="text-2xl font-semibold text-[#071952]">Get in Touch</h3>
           <p className="text-gray-600 mt-2">Reach us through any of the channels below:</p>
@@ -35,7 +33,6 @@ export default function ContactUs() {
           </div>
         </div>
 
-        {/* 📝 نموذج التواصل */}
         <div className="lg:w-2/3 bg-white shadow-lg rounded-lg p-8">
           <h3 className="text-2xl font-semibold text-[#071952]">Send Us a Message</h3>
 
