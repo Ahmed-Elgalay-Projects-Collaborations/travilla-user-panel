@@ -1,5 +1,10 @@
 # Travilla User Panel
 
+## clone the repo
+```bash
+git clone https://github.com/Ahmed-Elgalay-Projects-Collaborations/travilla-user-panel.git
+```
+
 ## Run with npm
 ```bash
 npm i
