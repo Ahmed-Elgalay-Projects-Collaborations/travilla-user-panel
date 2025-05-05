@@ -3,7 +3,7 @@ import { Input } from "@heroui/react";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-// import axios, { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 // import { Alert } from "@heroui/react";
@@ -23,57 +23,25 @@ export default function Register() {
 
   const onSubmit = () => {
     setIsLoading(true);
-    // setError("");
+    setError("");
     <Navigate to="/" />;
-    // axios.post("", values)
-    //   .then((res) => {
-    //     // console.log(res);
-    //     navigator("/login");
-    //     setIsLoading(false);
+    axios.post("http://localhost:5000/api/users/register", values)
+      .then((res) => {
+        console.log(res);
+        navigator("/login");
+        setIsLoading(false);
 
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setError(error.response.data.message);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.response.data.message);
 
-    //   })
-    //   .finally(() => {
-    //     setIsLoading(false);
-    //   });
-
-    try {
-      
-
-      navigator("/login"); 
-
-      toast.success("Signed up successfully", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
-    } catch (error) {
-      setError("Invalid email or password");
 
-      toast.error("error", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    
   };
 
   const Req_field = "This field is required";
@@ -116,13 +84,15 @@ export default function Register() {
     validationSchema,
   });
 
-  let tabs = [
-    {
-      id: "Customer",
-      label: "User",
-      content: (
-        <>
-          <div className=" my-10   ">
+
+          
+       
+
+  return (
+    <>
+      <div className="flex justify-center items-start  bg-gray-50 p-4">
+        <div className="w-full max-w-5xl ">
+        <div className=" my-10   ">
             <form
               onSubmit={handleSubmit}
               className="md:w-[75%] sm:w-[80%] lg:w-[60%] my-5 mx-auto grid gap-4 md:grid-cols-1  border border-x-medium rounded-md shadow-lg p-6 "
@@ -227,39 +197,6 @@ export default function Register() {
               </div>
             </form>
           </div>
-        </>
-      ),
-    },
-    {
-      id: "Admin",
-      label: "Admin",
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    },
-    {
-      id: "Agency",
-      label: "Agency",
-      content:
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-  ];
-
-  return (
-    <>
-      <div className="flex justify-center items-start  bg-gray-50 p-4">
-        <div className="w-full max-w-5xl ">
-          <Tabs
-            className="bg-white shadow-lg rounded-lg overflow-hidden ms-4"
-            variant="underlined"
-          >
-            {tabs.map((tab) => (
-              <Tab key={tab.id} title={tab.label}>
-                <Card className="border-none shadow-none">
-                  <CardBody>{tab.content}</CardBody>
-                </Card>
-              </Tab>
-            ))}
-          </Tabs>
         </div>
       </div>
     </>

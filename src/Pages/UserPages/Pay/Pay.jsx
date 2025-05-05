@@ -24,9 +24,7 @@ const Pay = () => {
         <h2 className="text-4xl font-bold text-gradient-to-r from-[#f97171] to-[#fcbf49] text-transparent bg-clip-text">
           Complete Your Payment
         </h2>
-        <p className="text-lg text-gray-500 mt-3">
-          Secure your booking by completing the payment process.
-        </p>
+       
       </div>
 
       <div className="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg">

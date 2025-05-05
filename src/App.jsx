@@ -10,7 +10,6 @@ import Layout from "./Layout/layout";
 import Home from "./Pages/UserPages/Home/Home";
 import Hotels from "./Pages/UserPages/Hotels/Hotels";
 import Tours from "./Pages/UserPages/Tours/Tours";
-import Booking from "./Pages/UserPages/Booking/Booking";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import ContactUs from "./Pages/UserPages/ContactUs/ContactUs";
@@ -21,6 +20,8 @@ import ProtectedRoute from "./Auth/ProtectedRoute";
 import OfferTripHotelDetails from "./Pages/UserPages/OfferTripHotelDeltails/OfferTripHotelDetails";
 import UserProfile from "./Pages/UserPages/UserProfile/UserProfile";
 import Pay from "./Pages/UserPages/Pay/Pay";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function App() {
   const router = createBrowserRouter([
@@ -56,15 +57,6 @@ export default function App() {
             </ProtectedRoute>
           ),
         },
-        {
-          path: "booking",
-          element: (
-            <ProtectedRoute>
-              <Booking />
-            </ProtectedRoute>
-          ),
-        },
-        ,
         {
           path: "login",
           element: (

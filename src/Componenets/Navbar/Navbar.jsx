@@ -30,11 +30,7 @@ export default function Navbar() {
       label: "Tours",
       icon: <i className="fa-solid fa-suitcase-rolling"></i>,
     },
-    {
-      path: "/booking",
-      label: "Booking",
-      icon: <i className="fa-solid fa-list-ul"></i>,
-    },
+
   ];
 
   const Logout = () => {
@@ -69,7 +65,7 @@ export default function Navbar() {
       </NavbarContent>
 
       {IsLogedin && (
-        <NavbarContent className="hidden lg:flex gap-6" justify="center">
+        <NavbarContent className="hidden lg:flex gap-10" justify="center">
           {menuLinks.map(({ path, label, icon }) => (
             <NavbarItem key={label}>
               <Link

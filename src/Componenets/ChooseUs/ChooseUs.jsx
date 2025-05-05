@@ -13,15 +13,27 @@ export default function ChooseUs() {
             🎯why choose us ?
           </h3>
           <p className="pt-12 text-lg font-semibold font-serif">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
-            eligendi corporis. Blanditiis reiciendis aspernatur provident odio?
-            Tempora harum rem illo.
+            We are committed to delivering exceptional value and service to our
+            customers. Our team combines expertise, reliability, and innovation
+            to ensure a seamless and satisfying experience from start to finish.
+            Whether you're looking for trusted solutions or personalized
+            support, we stand out by putting your needs first and exceeding
+            expectations every time.
           </p>
           <ul className="list-disc pl-5 flex flex-col gap-7 pt-12 text-lg font-semibold pb-12">
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
+            <li>
+              Professional Support - Our dedicated team is available around the
+              clock to assist you.
+            </li>
+            <li>
+              Fast and Reliable - Experience quick responses and dependable
+              service at every stage.
+            </li>
+            <li>
+              Innovative Solutions - We use modern tools and creative approaches
+              to solve real problems.
+            </li>
+            <li> Customer Satisfaction - Your success is our top priority — we don’t settle for less.</li>
           </ul>
         </div>
       </div>
