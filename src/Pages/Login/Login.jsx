@@ -36,14 +36,11 @@ export default function Login() {
     setError("");
 
     axios
-      .post("{{base_url}}/users/login", values)
+      .post("http://localhost:5000/api/users/login", values)
       .then((res) => {
         console.log(res);
-        localStorage.setItem("token", res.data.token);
-        setIsLogedin(true);
-        navigator("/");
-
-        toast.success(res.data.message, {
+        
+        toast.success("Loged in successfully", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -53,13 +50,16 @@ export default function Login() {
           progress: undefined,
           theme: "light",
           transition: Bounce,
-          });
+        });
+        localStorage.setItem("token", res.data.token);
+        setIsLogedin(true); 
+        navigator("/");
       })
       .catch((error) => {
         console.error(error);
-        setError(error.response.data.message);
+        setError("error");
 
-        toast.error(error.response.data.message, {
+        toast.error("invalid username or password", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,

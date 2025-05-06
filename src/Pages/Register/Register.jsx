@@ -17,8 +17,8 @@ export default function Register() {
     name: "",
     email: "",
     password: "",
-    rePassword: "",
-    phone: "",
+    // rePassword: "",
+    // phone: "",
   };
 
   const onSubmit = () => {
@@ -60,14 +60,14 @@ export default function Register() {
         /^(?=.*\d.*)(?=.*[a-zA-Z].*)(?=.*[!#\$%&\?].*).{8,}$/,
         "At least 1 digit, 1 spicial character, it must be more than 8 characterss "
       ),
-    rePassword: yup
-      .string()
-      .required(Req_field)
-      .oneOf([yup.ref("password"), "Password does not match "]),
-    phone: yup
-      .string()
-      .required(Req_field)
-      .matches(/^01[0-2]\d{1,8}$/, "Invalid number"),
+    // rePassword: yup
+    //   .string()
+    //   .required(Req_field)
+    //   .oneOf([yup.ref("password"), "Password does not match "]),
+    // phone: yup
+    //   .string()
+    //   .required(Req_field)
+    //   .matches(/^01[0-2]\d{1,8}$/, "Invalid number"),
   });
 
   const {
@@ -149,7 +149,7 @@ export default function Register() {
                 type="password"
               />
 
-              <Input
+              {/* <Input
                 isInvalid={touched.rePassword && errors.rePassword}
                 errorMessage={errors.rePassword}
                 onBlur={handleBlur}
@@ -161,9 +161,9 @@ export default function Register() {
                 label="RePassword"
                 placeholder="Enter your Password"
                 type="password"
-              />
+              /> */}
 
-              <Input
+              {/* <Input
                 isInvalid={touched.phone && errors.phone}
                 errorMessage={errors.phone}
                 onBlur={handleBlur}
@@ -175,7 +175,7 @@ export default function Register() {
                 label="Phone"
                 placeholder="Enter your Phone"
                 type="tel"
-              />
+              /> */}
               <Button
                 isLoading={IsLoading}
                 type="submit"
